@@ -8,20 +8,14 @@ import java.util.Optional;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/** A larger news story containing multiple sub-events. */
 public class Story {
-    /** WikiTimes internal ID of the story */
     private final long id;
-    /** the name of the story */
     private final String name;
-    /** the URL of the wikipedia page of this story */
     private final String wikipediaUrl;
-    /** the date of the first event of the story timeline */
     private final LocalDate startDate;
-    /** the date of the last event of the story timeline */
     private final LocalDate endDate;
-    /** the category of the story (if exist, otherwise null) */
     private final Optional<String> category;
-    /** a chronologically ordered list of events that constitute the story timeline */
     private final List<Event> events;
 
     @JsonCreator
@@ -40,30 +34,40 @@ public class Story {
         this.events = events;
     }
 
+    /** Internal ID of the story */
     public long getId() {
         return id;
     }
 
+    /** Name of the story */
     public String getName() {
         return name;
     }
 
+    /** URL of the Wikipedia page about this story */
     public String getWikipediaUrl() {
         return wikipediaUrl;
     }
 
+    /** Date of the first event of the story timeline */
     public LocalDate getStartDate() {
         return startDate;
     }
 
+    /** Date of the last event of the story timeline */
     public LocalDate getEndDate() {
         return endDate;
     }
 
+    /** the category of the story (if it exists) */
     public Optional<String> getCategory() {
         return category;
     }
 
+    /**
+     * Chronologically ordered list of events that constitute the story
+     * timeline.
+     */
     public List<Event> getEvents() {
         return events;
     }

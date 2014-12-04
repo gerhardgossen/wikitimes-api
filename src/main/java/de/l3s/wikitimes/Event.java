@@ -8,22 +8,17 @@ import java.util.Optional;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import de.l3s.wikitimes.client.WikiTimes;
+
+/** An event. */
 public class Event {
-    /** WikiTimes internal ID of the event*/
     private final long id      ;
-    /** the date of the event */
     private final LocalDate date;
-    /** the textual summary of the event */
     private final String description;
-    /** the news story this event belongs to (if exists, otherwise null) in the form of a compact representation of the STORY object, i.e. without timeline */
     private final Optional<Story> story;
-    /** the category of this event (if exist, otherwise null) */
     private final Optional<Category> category;
-    /** a list of entities involved in the event (if exist otherwise null or empty list) in the form of an ENTITY object: id, name, wikipedial URL */
     private final Collection<Entity> entities;
-        /** a list of external resources (i.e. online news articles) (if exist otherwise null or empty list) in the form of a SOURCE object: id, url (to the online news article), type (i.e. article) and source (i.e. cnn, bbc, twitter, youtube etc).*/
     private final Collection<Source> sources;
-    /** TODO */
     private final Optional<Location> location;
 
     @JsonCreator
@@ -44,34 +39,49 @@ public class Event {
         this.location = location;
     }
 
+    /** Internal ID of the event */
     public long getId() {
         return id;
     }
 
+    /** Date of the event */
     public LocalDate getDate() {
         return date;
     }
 
+    /** Textual summary of the event */
     public String getDescription() {
         return description;
     }
 
+    /**
+     * News story this event belongs to (if it exists).
+     *
+     * Only the compact representation of the STORY is returned, i.e. without
+     * timeline.
+     *
+     * @see WikiTimes#getStory(long)
+     */
     public Optional<Story> getStory() {
         return story;
     }
 
+    /** Category of this event (if it exists) */
     public Optional<Category> getCategory() {
         return category;
     }
 
+    /** Entities involved in the event. */
     public Collection<Entity> getEntities() {
         return entities;
     }
 
+    /** External resources (i.e. online news articles) */
     public Collection<Source> getSources() {
         return sources;
     }
 
+    /** TODO document */
     public Optional<Location> getLocation() {
         return location;
     }

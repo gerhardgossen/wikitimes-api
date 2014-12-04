@@ -5,13 +5,11 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/** External resources (i.e. online news articles) for an event. */
 public class Source {
     private final long id;
-    /** URL of the online news article */
     private final String url;
-    /** e.g. article */
     private final String type;
-    /** e.g. cnn, bbc, twitter, youtube */
     private final String source;
 
     @JsonCreator
@@ -27,14 +25,17 @@ public class Source {
         return id;
     }
 
+    /** URL of the online news article */
     public String getUrl() {
         return url;
     }
 
+    /** e.g. article */
     public String getType() {
         return type;
     }
 
+    /** e.g. cnn, bbc, twitter, youtube */
     public String getSource() {
         return source;
     }

@@ -5,6 +5,9 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * Entity related to an event.
+ */
 public class Entity {
     private final long id;
     private final String name;
@@ -18,14 +21,17 @@ public class Entity {
         this.wikipediaUrl = wikipediaUrl;
     }
 
+    /** Internal ID of the entity. */
     public long getId() {
         return id;
     }
 
+    /** Name of the entity. */
     public String getName() {
         return name;
     }
 
+    /** URL of the Wikipedia page about the entity. */
     public String getWikipediaUrl() {
         return wikipediaUrl;
     }

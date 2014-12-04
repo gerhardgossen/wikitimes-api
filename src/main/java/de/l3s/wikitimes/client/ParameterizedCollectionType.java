@@ -4,10 +4,19 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.Collection;
 
-final class ParameterizedCollectionType<T> implements ParameterizedType {
+/**
+ * Representation of a collection of <T> items.
+ *
+ * In contrast to comparable methods this class can construct references also
+ * dynamically at runtime.
+ * 
+ * @param <T>
+ *            item type
+ */
+class ParameterizedCollectionType<T> implements ParameterizedType {
     private final Class<T> itemType;
 
-    ParameterizedCollectionType(Class<T> itemType) {
+    public ParameterizedCollectionType(Class<T> itemType) {
         this.itemType = itemType;
     }
 

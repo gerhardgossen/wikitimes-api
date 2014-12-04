@@ -8,6 +8,9 @@ import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
 import com.fasterxml.jackson.datatype.jsr310.JSR310Module;
 import com.fasterxml.jackson.module.paramnames.ParameterNamesModule;
 
+/**
+ * Create the JSON parser used by Jersey.
+ */
 @Provider
 class ObjectMapperProvider implements ContextResolver<ObjectMapper> {
     private final ObjectMapper mapper = createMapper();
